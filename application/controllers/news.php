@@ -1,7 +1,17 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class News extends CI_Controller {
-
+	var $data = array();
+	
+	public function __construct() {
+		parent::__construct();
+		$member_id = $this->session->userdata('member_id');
+		if ($member_id == false)
+			$this->data['member'] = $this->current_user = new user();
+		else
+			$this->data['member'] = $this->current_user = $this->members_model->loadMember($member_id);
+	}
+	
 	/**
 	 * Index Page for this controller.
 	 *
@@ -21,5 +31,9 @@ class News extends CI_Controller {
 	{
 		$this->load->model('news_model');
 		$this->load->view('welcome_message', array('entries' => $this->news_model->get_last_ten_entries()));
+	}
+	
+	private function _getCurrentUser() {
+		return $this->data['member'];
 	}
 }
