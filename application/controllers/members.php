@@ -1,16 +1,14 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-require_once('application/libraries/member.php');
-
 class Members extends CI_Controller {
 	
 	public function __construct() {
 		parent::__construct();
 		$member_id = $this->session->userdata('member_id');
 		if ($member_id == false)
-			$this->data['member'] = $this->current_user = new user();
+			$this->data['member'] = $this->currentMember = new user();
 		else
-			$this->data['member'] = $this->current_user = $this->members_model->loadMember($member_id);
+			$this->data['member'] = $this->currentMember = $this->members_model->loadMember($member_id);
 	}
 
 	public function index()
@@ -78,6 +76,10 @@ class Members extends CI_Controller {
 	}
 	
 	public function profile() {
-		
+		//TODO: Finish
+	}
+	
+	private function _getCurrentUser() {
+		return $this->currentMember;
 	}
 }

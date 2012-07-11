@@ -7,9 +7,9 @@ class News extends CI_Controller {
 		parent::__construct();
 		$member_id = $this->session->userdata('member_id');
 		if ($member_id == false)
-			$this->data['member'] = $this->current_user = new user();
+			$this->data['member'] = $this->currentMember = new user();
 		else
-			$this->data['member'] = $this->current_user = $this->members_model->loadMember($member_id);
+			$this->data['member'] = $this->currentMember = $this->members_model->loadMember($member_id);
 	}
 	
 	/**
@@ -34,6 +34,6 @@ class News extends CI_Controller {
 	}
 	
 	private function _getCurrentUser() {
-		return $this->data['member'];
+		return $this->currentMember;
 	}
 }

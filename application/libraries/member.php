@@ -57,7 +57,7 @@ class member extends user {
 	}
 }
 
-class admin extends user {
+class admin extends member {
 	function __construct($model, $data) {
 		parent::__construct($model, $data);
 	}

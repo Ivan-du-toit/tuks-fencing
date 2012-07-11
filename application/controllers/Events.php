@@ -15,18 +15,31 @@ class Events extends CI_Controller
 			$this->data['member'] = $this->current_user = $this->member_model->loadMember($member_id);
 	}
 
-	public function index()
-	{
+	public function index() {
 		$this->load->model('event_model');
 	}
 	
-	public function create()
-	{
-		
+	public function create() {
+		//TODO: Finish
 	}
 	
-	public function edit()
-	{
-		
+	public function edit() {
+		//TODO: Finish
+	}
+	
+	public function listEvents() {
+		//TODO: Finish
+	}
+	
+	public function view() {
+		//TODO: Finish
+	}
+	
+	public function subscribe() {
+		//TODO: Finish
+	}
+	
+	private function _getCurrentUser() {
+		return $this->currentMember;
 	}
 }
