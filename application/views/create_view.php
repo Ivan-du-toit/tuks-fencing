@@ -18,8 +18,5 @@
 <input type="submit" value="Create Post" />
 </form>
 
-
-
-
 </body>
 </html>

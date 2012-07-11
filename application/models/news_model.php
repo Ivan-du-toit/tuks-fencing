@@ -13,6 +13,7 @@ class news_model extends CI_Model {
     
     function get_last_ten_entries()
     {
+		$this->db->order_by("date", "desc");
         $query = $this->db->get('news', 10);
         return $query->result();
     }
@@ -35,6 +36,14 @@ class news_model extends CI_Model {
 
         $this->db->update('news', $this, array('id' => $id));
     }
-
+	
+	function retrieve_entry($id)
+	{
+		$this->db->where('id', $id);
+		$query = $this->db->get('news');
+		return $query->result();
+		
+	}
+	
 }
 ?>
