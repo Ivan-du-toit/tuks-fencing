@@ -71,8 +71,15 @@
 
 	<div id="body">
 		<?php foreach ($entries as $entry) :?>
-		<h3><?php echo $entry->title; ?></h3>
-		<p><?php echo $entry->content; ?></p>
+		<h3><?php echo nl2br($entry->title); ?></h3>
+		<p><?php echo nl2br($entry->content); ?></p>
+		<p><b><?php echo 'Posted on '.$entry->date; ?></b></p>
+		<?php
+			if ($user->isAdmin()) {?>
+				<p><?=anchor('news/edit/'.$entry->id, 'Edit Post');?></p> 
+				<?php }
+			
+		?>
 		<?php endforeach; ?>
 	</div>
 

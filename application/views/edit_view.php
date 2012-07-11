@@ -18,7 +18,7 @@
 <h4>Content</h4>
 <textarea name="content" required value="" cols="40" rows="10"><?php echo $entry->content ?></textarea>
 <br/>
-<input type="submit" value="Create Post" /-->
+<input type="submit" value="Update Post" />
 <?php endforeach; ?>
 </form>
 

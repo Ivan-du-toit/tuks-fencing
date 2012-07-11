@@ -30,7 +30,8 @@ class News extends CI_Controller {
 	public function index()
 	{
 		$this->load->model('news_model');
-		$this->load->view('welcome_message', array('entries' => $this->news_model->get_last_ten_entries()));
+		$this->load->helper(array('form', 'url'));
+		$this->load->view('welcome_message', array('entries' => $this->news_model->get_last_ten_entries(), 'user' => $this->_getCurrentUser()));
 	}
 	
 	public function create()
@@ -65,7 +66,7 @@ class News extends CI_Controller {
 			$this->load->view("no_access");
 	}
 	
-	public function edit($postid)
+	public function edit($postid = 0)
 	{
 		$user = $this->_getCurrentUser();
 		$this->load->model('news_model');
@@ -95,15 +96,6 @@ class News extends CI_Controller {
 		}
 		else
 			$this->load->view("no_access");
-		
-		
-		
-	}
-	
-	public function delete($postid)
-	{
-	
-	
 	}
 		
 	private function _getCurrentUser() {
