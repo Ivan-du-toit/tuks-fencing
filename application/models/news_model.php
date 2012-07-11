@@ -21,19 +21,19 @@ class news_model extends CI_Model {
     {
         $this->title   = $title;
         $this->content = $content;
-        $this->date    = time();
+        $this->date    = date("Y/m/d H:i:s");
 		$this->author  = $author;
 
-        $this->db->insert('entries', $this);
+        $this->db->insert('news', $this);
     }
 
     function update_entry($id, $title, $content)
     {
         $this->title   = $title;
         $this->content = $content;
-        $this->date    = time();
+        $this->date    = date("Y/m/d H:i:s");
 
-        $this->db->update('entries', $this, array('id' => $id));
+        $this->db->update('news', $this, array('id' => $id));
     }
 
 }
