@@ -11,6 +11,11 @@ class event_model extends CI_Model {
 		return $result->result_array();
     }
 	
+	public function getEvent($id) {
+		$result = $this->db->get_where('event', array('id' => $id));
+		return $result->result_array();
+    }
+	
 	public function listFutureEvents() {
 		$result = $this->db->get_where('event', array('date >=' =>date('Y-m-d', now())));
 		return $result->result_array();
@@ -19,10 +24,11 @@ class event_model extends CI_Model {
     public function addEvent($name, $description, $date, $categories){
         $this->db->insert('event', array('name' => $name, 'description' => $description, 'date' => $date));
 		$id = $this->db->insert_id();
-		
-		foreach ($categories as $weapon => $ages) {
-			foreach ($ages as $age => $startTime) {
-				$this->db->insert('event_category', array('event_id' => $id, 'weapon' => $weapon, 'age' => $age, 'start_time' => $startTime));
+		foreach ($categories as $gender => $weapons) {
+			foreach ($weapons as $weapon => $ages) {
+				foreach ($ages as $age => $startTime) {
+					$this->db->insert('event_category', array('event_id' => $id, 'weapon' => $weapon, 'age' => $age, 'gender' => $gender, 'start_time' => $startTime));
+				}
 			}
 		}
 		return $id;

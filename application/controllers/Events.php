@@ -16,27 +16,50 @@ class Events extends CI_Controller
 	}
 
 	public function index() {
-		$this->load->model('event_model');
+		$this->listEvents();
 	}
 	
 	public function create() {
-		//TODO: Finish
+		if (!$this->currentMember->isAdmin()) {
+			$this->load->view('no_access');
+			return;
+		}
+		if (!($name = $this->input->post('name', TRUE))) {
+			$this->load->view('create_event_view');
+			return;
+		}
+		//TODO: Process info
 	}
 	
 	public function edit() {
-		//TODO: Finish
+		if (!$this->currentMember->isAdmin()) {
+			$this->load->view('no_access');
+			return;
+		}
+		if (!($name = $this->input->post('name', TRUE))) {
+			$this->load->view('create_event_view');
+			return;
+		}
+		//TODO: Process info
 	}
 	
 	public function listEvents() {
-		//TODO: Finish
+		$events = $this->event_model->listEvents(date('Y', now()));
+		$this->load->view('event_list_view', $events);
 	}
 	
 	public function view() {
-		//TODO: Finish
+		$id = $this->uri->segment(3, 0);
+		$event = $this->event_model->getEvent($id);
+		$this->load->view('event_view', $event);
 	}
 	
-	public function subscribe() {
-		//TODO: Finish
+	public function attend() {
+		if (!$this->currentMember->isMember()) {
+			$this->load->view('no_access');
+			return;
+		}
+		//TODO: Process info
 	}
 	
 	private function _getCurrentUser() {
