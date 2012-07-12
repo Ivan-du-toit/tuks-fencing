@@ -31,7 +31,7 @@ class News extends CI_Controller {
 	{
 		$this->load->model('news_model');
 		$this->load->helper(array('form', 'url'));
-		$this->load->view('welcome_message', array('entries' => $this->news_model->get_last_ten_entries(), 'user' => $this->_getCurrentUser()));
+		$this->load->view('home_view', array('entries' => $this->news_model->get_last_ten_entries(), 'user' => $this->_getCurrentUser()));
 	}
 	
 	public function create()
