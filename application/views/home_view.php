@@ -11,12 +11,12 @@
 		<div class="mainDiv">
 			<div id="header">
 				<img id="logo" src="images/TUKS_Fencing_Club_Header.png" alt="logo"/>
+				<?php if (!$member->isMember()) : ?>
 				<a href="#" class="login_btn"><span>Login</span><div class="triangle"></div></a>
                 <div id="login_box">
-                    <!--div id="tab"><a href="..." class="login_btn"><span>Login</span><div class="triangle"></div></a></div-->
                     <div id="login_box_content"></div>
                     <div id="login_box_content">
-                        <form id="login_form" action="members/login">
+                        <form id="login_form" action="members/login" method="POST">
                             <h2>Please enter your details</h2>
                             <input type="text" placeholder="Email" name="email"/>
                             <input type="password" placeholder="Password" name="password"/>
@@ -24,6 +24,9 @@
                         </form>
                     </div>
                 </div>
+				<?php else :?>
+					<?php echo anchor("members/profile/{$member->getID()}", $member->getName());?>
+				<?php endif; ?>
 				<div class="headerLinks">
 					<a href="#">HOME</a>
 					<a href="#">EVENTS</a>
