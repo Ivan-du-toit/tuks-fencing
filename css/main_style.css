@@ -76,3 +76,10 @@ body {
     font-family: 'Lao';
     src: url('../fonts/Lao_UI.ttf');
 }
+
+#login_box {
+	display:none;
+	position:absolute;
+	width:236px;
+	margin:2px 0 0 732px;
+}

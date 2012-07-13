@@ -3,14 +3,27 @@
 	<head>
 		<meta charset="utf-8">
 		<title>TUKS Fencing Club</title>
-		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script language="javascript" src="js/login.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/main_style.css"/>
 	</head>
 	<body>
 		<div class="mainDiv">
 			<div id="header">
 				<img id="logo" src="images/TUKS_Fencing_Club_Header.png" alt="logo"/>
-				
+				<a href="#" class="login_btn"><span>Login</span><div class="triangle"></div></a>
+                <div id="login_box">
+                    <!--div id="tab"><a href="..." class="login_btn"><span>Login</span><div class="triangle"></div></a></div-->
+                    <div id="login_box_content"></div>
+                    <div id="login_box_content">
+                        <form id="login_form" action="members/login">
+                            <h2>Please enter your details</h2>
+                            <input type="text" placeholder="Email" name="email"/>
+                            <input type="password" placeholder="Password" name="password"/>
+                            <input type="submit" value="Login!" />
+                        </form>
+                    </div>
+                </div>
 				<div class="headerLinks">
 					<a href="#">HOME</a>
 					<a href="#">EVENTS</a>
