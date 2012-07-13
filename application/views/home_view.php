@@ -12,7 +12,7 @@
 			<div id="header">
 				<img id="logo" src="images/TUKS_Fencing_Club_Header.png" alt="logo"/>
 				<?php if (!$member->isMember()) : ?>
-				<a href="#" class="login_btn"><span>Login</span><div class="triangle"></div></a>
+				<a href="#" class="login_btn">Login<div class="triangle"></div></a>
                 <div id="login_box">
                     <div id="login_box_content"></div>
                     <div id="login_box_content">

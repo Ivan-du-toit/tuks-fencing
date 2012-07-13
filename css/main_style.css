@@ -36,11 +36,13 @@ body {
 }
 
 .headerLinks {
-	margin-top:-70px;
+	margin-top:-75px;
 	margin-bottom:60px;
-	margin-left:450px;
+	margin-left:400px;
 	
 	font-family:Lao,Arial,Georgia;
+	
+	font-size:13pt;
 }
 
 .headerLinks a {
@@ -83,3 +85,41 @@ body {
 	width:236px;
 	margin:2px 0 0 732px;
 }
+
+.login_btn {
+	color:#7f7f7f;
+	
+	text-decoration:none;
+	
+	font-family:Arial,Georgia;
+}
+
+.login_btn:hover {
+	text-decoration:none;
+	color:#000000;
+}
+
+/*
+.login_btn a:link
+{
+	text-decoration:none;
+	color:#000000;
+}
+
+.login_btn a:visited
+{
+	text-decoration:none;
+	color:#000000;
+}
+
+.login_btn a:active
+{
+	text-decoration:none;
+	color:#000000;
+}
+
+.login_btn a:hover
+{
+	text-decoration:none;
+	color:#e30033;
+}*/
