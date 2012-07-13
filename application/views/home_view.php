@@ -5,12 +5,13 @@
 		<title>TUKS Fencing Club</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<script language="javascript" src="js/login.js"></script>
+		<base href="<?php echo base_url(); ?>"/>
 		<link rel="stylesheet" type="text/css" href="css/main_style.css"/>
 	</head>
 	<body>
 		<div class="mainDiv">
 			<div id="header">
-				<img id="logo" src="images/TUKS_Fencing_Club_Header.png" alt="logo"/>
+				<a href="<?php echo base_url(); ?>"><img id="logo" src="images/TUKS_Fencing_Club_Header.png" alt="logo"/></a>
 				<?php if (!$member->isMember()) : ?>
 				<a href="#" class="login_btn">Login<div class="triangle"></div></a>
                 <div id="login_box">
@@ -28,18 +29,24 @@
 					<?php echo anchor("members/profile/{$member->getID()}", $member->getName());?>
 				<?php endif; ?>
 				<div class="headerLinks">
-					<a href="#">HOME</a>
-					<a href="#">EVENTS</a>
-					<a href="#">NEWS</a>
-					<a href="#">JOIN US</a>
-					<a href="#">ABOUT US</a>
+					<a href="<?php echo base_url(); ?>">HOME</a>
+					<a href="events">EVENTS</a>
+					<a href="news">NEWS</a>
+					<a href="web/join-us">JOIN US</a>
+					<a href="web/about-us">ABOUT US</a>
 				</div>
 			</div>
 			<img src="images/mainBanner.jpg" alt="main banner"/>
 			
+<<<<<<< HEAD
 			<a href="#"><img src="images/Join_Us.jpg" alt="Join Us"/></a>
 			<a href="#"><img src="images/Events.jpg" alt="Events"/></a>
 			<a href="#"><img src="images/About_Us.jpg" alt="About Us"/></a>
+=======
+			<a href="web/join_us"><img src="images/Join_Us.jpg" alt="Join Us"/></a>
+			<a href="events"><img src="images/Events.jpg" alt="Events"/></a>
+			<a href="web/about_us"><img src="images/About_Us.jpg" alt="About Us"/></a>
+>>>>>>> a47e656f386e181c4a20d0fe4f5624bd161f7fb4
 			
 			<div id="latestNews">
 			
