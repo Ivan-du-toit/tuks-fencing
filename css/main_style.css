@@ -1,0 +1,78 @@
+body {
+	margin-bottom:0px;
+	margin-left:0px;
+	margin-right:0px;
+	margin-top:0px;
+	
+	height:100%;
+	width:100%;
+	background-image:url('../images/background_slice.jpg');
+	background-repeat:repeat-x;
+	background-attachment:fixed;
+	background-position:top;
+}
+
+.mainDiv {
+	margin-top:50px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:50px;
+	
+	width:950px;
+	height:auto;
+	
+	background-color:#FFFFFF;
+	
+	-moz-box-shadow:	0px 8px 8px 6px #5d5e5e;
+	-webkit-box-shadow:	0px 8px 8px 6px #5d5e5e;
+	box-shadow:			0px 8px 8px 6px #5d5e5e;
+	
+}
+
+#logo {
+	margin-top:30px;
+	margin-left:30px;
+	margin-bottom:40px;
+}
+
+.headerLinks {
+	margin-top:-70px;
+	margin-bottom:60px;
+	margin-left:450px;
+	
+	font-family:Lao,Arial,Georgia;
+}
+
+.headerLinks a {
+	margin-left:30px;
+}
+
+.headerLinks a:link
+{
+	text-decoration:none;
+	color:#000000;
+}
+
+.headerLinks a:visited
+{
+	text-decoration:none;
+	color:#000000;
+}
+
+.headerLinks a:active
+{
+	text-decoration:none;
+	color:#000000;
+}
+
+.headerLinks a:hover
+{
+	text-decoration:none;
+	color:#e30033;
+}
+
+@font-face 
+{
+    font-family: 'Lao';
+    src: url('../fonts/Lao_UI.ttf');
+}
