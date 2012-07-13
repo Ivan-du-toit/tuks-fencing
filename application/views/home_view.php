@@ -21,9 +21,9 @@
 			</div>
 			<img src="images/mainBanner.jpg" alt="main banner"/>
 			
-			<img src="images/Join_Us.jpg" alt="Join Us"/>
-			<img src="images/Events.jpg" alt="Events"/>
-			<img src="images/About_Us.jpg" alt="About Us"/>
+			<a href="#"><img src="images/Join_Us.jpg" alt="Join Us"/></a>
+			<a href="#"><img src="images/Events.jpg" alt="Events"/></a>
+			<a href="#"><img src="images/About_Us.jpg" alt="About Us"/></a>
 			
 			<div id="latestNews">
 			
