@@ -10,9 +10,9 @@ class Events extends CI_Controller
 		$this->load->model('event_model');
 		$member_id = $this->session->userdata('member_id');
 		if ($member_id == false)
-			$this->data['member'] = $this->current_user = new user();
+			$this->data['member'] = $this->currentMember = new user();
 		else
-			$this->data['member'] = $this->current_user = $this->member_model->loadMember($member_id);
+			$this->data['member'] = $this->currentMember = $this->members_model->loadMember($member_id);
 	}
 
 	public function index() {
@@ -21,11 +21,15 @@ class Events extends CI_Controller
 	
 	public function create() {
 		if (!$this->currentMember->isAdmin()) {
+			$this->load->view('header', $this->data);
 			$this->load->view('no_access');
+			$this->load->view('footer', $this->data);
 			return;
 		}
 		if (!($name = $this->input->post('name', TRUE))) {
+			$this->load->view('header', $this->data);
 			$this->load->view('create_event_view');
+			$this->load->view('footer', $this->data);
 			return;
 		}
 		//TODO: Process info
@@ -44,8 +48,10 @@ class Events extends CI_Controller
 	}
 	
 	public function listEvents() {
-		$events = $this->event_model->listEvents(date('Y', now()));
-		$this->load->view('event_list_view', $events);
+		$this->data['events'] = $this->event_model->listEvents(date('Y', time()));
+		$this->load->view('header', $this->data);
+		$this->load->view('event_list_view', $this->data);
+		$this->load->view('footer', $this->data);
 	}
 	
 	public function view() {

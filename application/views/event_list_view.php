@@ -1,15 +1,17 @@
-<html>
-<body>
-<div id="content">
+<?php if ($member->isAdmin()): ?>
+<div id="admin-panel">
+	<a href="events/create">Create Event</a>
+</div>
+<?php endif; ?>
 <table>
 <thead>
 <tr><td>Date</td><td>Event</td><td>Event location</td></tr>
 </thead>
 <tbody>
-<?php foreach ($events as $event): ?>
+<?php if (count($events) == 0): ?>
+<tr><td colspan="3">No Events found</td></tr>
+<?php else: foreach ($events as $event): ?>
 <tr><td><?php echo $event->date; ?></td><td><?php echo anchor("events/view/{$event->id}", $event->name) ?>"</td><td><?php echo $event->location; ?></td></tr>
+<?php endforeach; endif; ?>
 </tbody>
 </table>
-</div>
-</body>
-<html>

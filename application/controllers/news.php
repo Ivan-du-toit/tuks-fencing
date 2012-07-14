@@ -33,7 +33,7 @@ class News extends CI_Controller {
 		$this->load->helper(array('form', 'url'));
 		$this->data['entries'] = $this->news_model->get_last_ten_entries();
 		$this->data['user'] = $this->_getCurrentUser();
-		$this->load->view('home_view', $this->data);
+		$this->load->view('news_view', $this->data);
 	}
 	
 	public function create()

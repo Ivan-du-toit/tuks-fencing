@@ -1,9 +1,3 @@
-<html>
-<head>
-<title>Register</title>
-</head>
-<body>
-
 <?php echo validation_errors(); ?>
 
 <?php echo form_open('members/register'); ?>
@@ -40,6 +34,3 @@
 <div><input type="submit" value="Submit" /></div>
 
 </form>
-
-</body>
-</html>

@@ -31,15 +31,21 @@ class Web extends CI_Controller {
 		$this->load->model('news_model');
 		$this->load->helper(array('form', 'url'));
 		$this->data['entries'] = $this->news_model->get_last_ten_entries();
+		$this->load->view('header', $this->data);
 		$this->load->view('home_view', $this->data);
+		$this->load->view('footer', $this->data);
 	}
 	
 	public function about_us() {
+		$this->load->view('header', $this->data);
 		$this->load->view('about_us_view', $this->data);
+		$this->load->view('footer', $this->data);
 	}
 	
 	public function join_us() {
+		$this->load->view('header', $this->data);
 		$this->load->view('join_us_view', $this->data);
+		$this->load->view('footer', $this->data);
 	}
 	
 	private function _getCurrentUser() {

@@ -19,7 +19,7 @@ class Members extends CI_Controller {
 	public function login() {
 		$this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
-		
+		$this->load->view('header', $this->data);
 		if ($email = $this->input->post('email', TRUE)) {
 		
 			$this->form_validation->set_rules('email', 'E-Mail', 'trim|required|valid_email');
@@ -31,7 +31,6 @@ class Members extends CI_Controller {
 				if ($user->isMember()) {
 					if ($user->matchPassword($password)) {
 						$this->session->set_userdata('member_id', $user->getId());
-						//redirect(base_url(), 'location', 200);
 						redirect('/', 'refresh', 200);
 					}
 				}
@@ -40,12 +39,13 @@ class Members extends CI_Controller {
 				$this->load->view('login_view');
 		} else
 			$this->load->view('login_view');
+		$this->load->view('footer', $this->data);
 	}
 	
 	public function register() {
 		$this->load->helper(array('form'));
 		$this->load->library('form_validation');
-		
+		$this->load->view('header', $this->data);
 		if ($email = $this->input->post('email', true)) {
 			$this->form_validation->set_rules('email', 'E-Mail', 'trim|required|valid_email|is_unique[member.email]');
 			$this->form_validation->set_rules('conf-email', 'E-Mail Confirmation', 'trim|required|matches[email]');
@@ -73,10 +73,18 @@ class Members extends CI_Controller {
 				$this->load->view('register_view');
 		} else
 			$this->load->view('register_view');
+		$this->load->view('footer', $this->data);
 	}
 	
+	public function logout() {
+		$this->session->unset_userdata('member_id');
+		redirect('/', 'refresh', 200);
+	}
+
 	public function profile() {
-		//TODO: Finish
+		$this->load->view('header', $this->data);
+		$this->load->view('profile_view', $this->data);
+		$this->load->view('footer', $this->data);
 	}
 	
 	private function _getCurrentUser() {

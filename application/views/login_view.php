@@ -1,9 +1,3 @@
-<html>
-<head>
-<title>Login</title>
-</head>
-<body>
-
 <?php echo validation_errors(); ?>
 
 <?php if (isset($error)) echo $error; ?>
@@ -19,6 +13,3 @@
 <div><input type="submit" value="Submit" /></div>
 
 </form>
-
-</body>
-</html>

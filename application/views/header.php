@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>TUKS Fencing Club</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script language="javascript" src="js/login.js"></script>
+		<base href="<?php echo base_url(); ?>"/>
+		<link rel="stylesheet" type="text/css" href="css/main_style.css"/>
+	</head>
+	<body>
+		<div class="mainDiv">
+			<div id="header">
+				<a href="<?php echo base_url(); ?>"><img id="logo" src="images/TUKS_Fencing_Club_Header.png" alt="logo"/></a>
+				<?php if (!$member->isMember()) : ?>
+				<span><a href="#" class="login_btn">Login<div class="triangle"></div></a>/<a href="<?php echo base_url(); ?>members/register">Register</a></span>
+				
+                <div id="login_box">
+                    <!--div id="login_box_content"></div-->
+                    <div id="login_box_content">
+                        <form id="login_form" action="members/login" method="POST">
+                            <h2>Please enter your details</h2>
+                            <input type="text" placeholder="Email" name="email"/>
+                            <input type="password" placeholder="Password" name="password"/>
+                            <input type="submit" value="Login!" />
+                        </form>
+                    </div>
+                </div>
+				<?php else :?>
+					<div id="member_box">
+						<?php echo anchor("members/profile/{$member->getID()}", $member->getName());?>
+						<a href="members/logout">Logout</a>
+					</div>
+				<?php endif; ?>
+				<div class="headerLinks">
+					<a href="<?php echo base_url(); ?>">HOME</a>
+					<a href="events">EVENTS</a>
+					<a href="news">NEWS</a>
+					<a href="web/join-us">JOIN US</a>
+					<a href="web/about-us">ABOUT US</a>
+				</div>
+			</div>
+			<div id="content">
