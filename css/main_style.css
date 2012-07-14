@@ -92,6 +92,13 @@ body {
 	text-decoration:none;
 	
 	font-family:Arial,Georgia;
+	
+	position:absolute;
+	top:inherit;
+	left:inherit;
+	
+	margin-left:-40px;
+	margin-top:20px;
 }
 
 .login_btn:hover {
@@ -99,27 +106,59 @@ body {
 	color:#000000;
 }
 
-/*
-.login_btn a:link
-{
+#login_box {
+	font-family:Lao,Arial,Georgia;
+
+	position:absolute;
+	top:inherit;
+	left:inherit;
+	
+	margin-left:700px;
+	margin-top:-200px;
+	
+	border: 1px solid black;
+	
+	padding-bottom:10px;
+	padding-left:10px;
+	padding-top:0px;
+	padding-right:0px;
+	
+	background-color:#FFFFFF;
+}
+
+#UP_footer {
+	float:left;
+}
+
+#footer {
+	width:950px;
+	height:85px;
+}
+
+#footer hr {
+	margin-bottom:0px;
+	margin-top:3px;
+}
+
+.footerLinks {
+	float:right;
+	
+	margin-top:30px;
+	margin-right:40px;
+}
+
+.footerLinks a {
+	margin-left:30px;
+	
+	font-family:Arial, Georgia;
+	font-size:9pt;
+	
+	text-decoration:none;
+	
+	color:#7f7f7f;
+}
+
+.footerLinks a:hover {
 	text-decoration:none;
 	color:#000000;
 }
-
-.login_btn a:visited
-{
-	text-decoration:none;
-	color:#000000;
-}
-
-.login_btn a:active
-{
-	text-decoration:none;
-	color:#000000;
-}
-
-.login_btn a:hover
-{
-	text-decoration:none;
-	color:#e30033;
-}*/

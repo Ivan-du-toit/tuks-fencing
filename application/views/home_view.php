@@ -38,22 +38,26 @@
 			</div>
 			<img src="images/mainBanner.jpg" alt="main banner"/>
 			
-<<<<<<< HEAD
-			<a href="#"><img src="images/Join_Us.jpg" alt="Join Us"/></a>
-			<a href="#"><img src="images/Events.jpg" alt="Events"/></a>
-			<a href="#"><img src="images/About_Us.jpg" alt="About Us"/></a>
-=======
 			<a href="web/join_us"><img src="images/Join_Us.jpg" alt="Join Us"/></a>
 			<a href="events"><img src="images/Events.jpg" alt="Events"/></a>
 			<a href="web/about_us"><img src="images/About_Us.jpg" alt="About Us"/></a>
->>>>>>> a47e656f386e181c4a20d0fe4f5624bd161f7fb4
 			
 			<div id="latestNews">
 			
 			</div>
 			
 			<div id="footer">
-			
+				<hr />
+				<img id="UP_footer" src="images/UP_logo.jpg" alt="UP Logo"/>
+				<img id="UP_footer" src="images/Fencing_mini_logo.jpg" alt="Fencing Logo"/>
+				
+				<div class="footerLinks">
+					<a href="<?php echo base_url(); ?>">HOME</a>
+					<a href="events">EVENTS</a>
+					<a href="news">NEWS</a>
+					<a href="web/join-us">JOIN US</a>
+					<a href="web/about-us">ABOUT US</a>
+				</div>
 			</div>
 		</div>
 	</body>
