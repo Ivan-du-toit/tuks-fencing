@@ -3,7 +3,7 @@
 -- Server version:               5.5.16 - MySQL Community Server (GPL)
 -- Server OS:                    Win32
 -- HeidiSQL version:             7.0.0.4053
--- Date/time:                    2012-07-11 01:32:56
+-- Date/time:                    2012-07-18 16:15:58
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -33,7 +33,9 @@ CREATE TABLE IF NOT EXISTS `event` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `description` text NOT NULL,
-  `date` date NOT NULL,
+  `start_date` date NOT NULL,
+  `end_date` date NOT NULL,
+  `location` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -46,7 +48,8 @@ CREATE TABLE IF NOT EXISTS `event_category` (
   `event_id` int(10) unsigned NOT NULL,
   `weapon` enum('Epee','Foil','Saber') NOT NULL,
   `age` enum('U13','U15','U18','U20') NOT NULL,
-  `start_time` datetime NOT NULL,
+  `start_time` varchar(50) DEFAULT NULL,
+  `gender` enum('Female','Male') NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_event_categories_event` (`event_id`),
   CONSTRAINT `FK_event_categories_event` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`)
@@ -58,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `event_category` (
 -- Dumping structure for table tuks.member
 CREATE TABLE IF NOT EXISTS `member` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `Name` varchar(150) NOT NULL,
+  `name` varchar(150) NOT NULL,
   `surname` varchar(150) NOT NULL,
   `email` varchar(150) NOT NULL,
   `password` varchar(100) NOT NULL,

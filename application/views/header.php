@@ -3,9 +3,10 @@
 	<head>
 		<meta charset="utf-8">
 		<title>TUKS Fencing Club</title>
+		<base href="<?php echo base_url(); ?>"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<script language="javascript" src="js/login.js"></script>
-		<base href="<?php echo base_url(); ?>"/>
+		
 		<link rel="stylesheet" type="text/css" href="css/main_style.css"/>
 	</head>
 	<body>

@@ -6,30 +6,40 @@ class event_model extends CI_Model {
     }
     
     public function listEvents($year) {
-		$this->db->where(array('date >=' => $year, 'date <' => $year+1));
+		$this->db->where(array('start_date >' => $year));
 		$result = $this->db->get('event');
-		return $result->result_array();
+		return $result->result_object();
     }
 	
 	public function getEvent($id) {
 		$result = $this->db->get_where('event', array('id' => $id));
-		return $result->result_array();
+		$event = $result->result_object();
+		if (sizeof($event)==0)
+			return NULL;
+		return $event[0];
+    }
+	
+	public function getCategories($eventId, $member_id = -1) {
+		if ($member_id > -1) {
+			$query = $this->db->query("select *, (member_id = {$this->db->escape($member_id)}) as attend from event_category
+					left join attendance on event_category.id = category_id WHERE event_id = {$this->db->escape($eventId)}");
+			return $query->result_object();
+		}
+		else
+			$result = $this->db->get_where('event_category', array('event_id' => $eventId));
+		return $result->result_object();
     }
 	
 	public function listFutureEvents() {
-		$result = $this->db->get_where('event', array('date >=' =>date('Y-m-d', now())));
-		return $result->result_array();
+		$result = $this->db->get_where('event', array('start_date >=' =>date('Y-m-d', now())));
+		return $result->result_object();
     }
 
-    public function addEvent($name, $description, $date, $categories){
-        $this->db->insert('event', array('name' => $name, 'description' => $description, 'date' => $date));
+    public function addEvent($name, $description, $location, $start_date, $end_date, $categories){
+        $this->db->insert('event', array('name' => $name, 'description' => $description, 'start_date' => $start_date, 'end_date' => $end_date));
 		$id = $this->db->insert_id();
-		foreach ($categories as $gender => $weapons) {
-			foreach ($weapons as $weapon => $ages) {
-				foreach ($ages as $age => $startTime) {
-					$this->db->insert('event_category', array('event_id' => $id, 'weapon' => $weapon, 'age' => $age, 'gender' => $gender, 'start_time' => $startTime));
-				}
-			}
+		foreach ($categories as $category) {
+			$this->db->insert('event_category', array('event_id' => $id, 'weapon' => $category['weapon'], 'age' => $category['age'], 'gender' => $category['gender'], 'start_time' => $category['start_time']));
 		}
 		return $id;
     }

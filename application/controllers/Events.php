@@ -20,19 +20,46 @@ class Events extends CI_Controller
 	}
 	
 	public function create() {
+		$this->load->library('form_validation');
 		if (!$this->currentMember->isAdmin()) {
 			$this->load->view('header', $this->data);
 			$this->load->view('no_access');
 			$this->load->view('footer', $this->data);
 			return;
 		}
-		if (!($name = $this->input->post('name', TRUE))) {
+		if (!($name = $this->input->post('event_name', TRUE))) {
 			$this->load->view('header', $this->data);
 			$this->load->view('create_event_view');
 			$this->load->view('footer', $this->data);
 			return;
 		}
-		//TODO: Process info
+		$this->form_validation->set_rules('event_name', 'Event Name', 'trim|required|min_length[4]');
+		$this->form_validation->set_rules('location', 'Event Location', 'trim|required|min_length[6]');
+		$this->form_validation->set_rules('start_date', 'Start Date', 'trim|required');
+		$this->form_validation->set_rules('end_date', 'End Date', 'trim|required');
+		if ($this->form_validation->run()) {
+			$event_name = $this->input->post('event_name', TRUE);
+			$description = $this->input->post('description', TRUE);
+			$location = $this->input->post('location', TRUE);
+			$start_date = $this->input->post('start_date', TRUE);
+			$end_date = $this->input->post('end_date', TRUE);
+			
+			$weapons = $this->input->post('weapons', TRUE);
+			$genders = $this->input->post('genders', TRUE);
+			$ages = $this->input->post('ages', TRUE);
+			$times = $this->input->post('start_times', TRUE);
+			
+			$categories = array();
+			foreach($weapons as $key => $weapon) {
+				$categories[] = array('weapon' => $weapon, 'gender' => $genders[$key], 'age' => $ages[$key], 'start_time' => $times[$key]);
+			}
+			
+			$this->event_model->addEvent($event_name, $description, $location, $start_date, $end_date, $categories);
+			redirect(base_url().'events/', 'refresh', 200);
+		}
+		$this->load->view('header', $this->data);
+		$this->load->view('create_event_view');
+		$this->load->view('footer', $this->data);
 	}
 	
 	public function edit() {
@@ -56,8 +83,11 @@ class Events extends CI_Controller
 	
 	public function view() {
 		$id = $this->uri->segment(3, 0);
-		$event = $this->event_model->getEvent($id);
-		$this->load->view('event_view', $event);
+		$this->data['event'] = $this->event_model->getEvent($id);
+		$this->data['categories'] = $this->event_model->getCategories($id, $this->currentMember->getID());
+		$this->load->view('header', $this->data);
+		$this->load->view('event_view', $this->data);
+		$this->load->view('footer', $this->data);
 	}
 	
 	public function attend() {
@@ -65,10 +95,21 @@ class Events extends CI_Controller
 			$this->load->view('no_access');
 			return;
 		}
-		//TODO: Process info
+		$this->load->library('form_validation');	
+		$this->form_validation->set_rules('event_id', 'event_id', 'required');
+		if ($this->form_validation->run()) {
+			$event_id = $this->input->post('event_id', TRUE);
+			$categories = $this->input->post('categories', TRUE);
+			
+			foreach($categories as $category) {
+				$this->event_model->registerForCategory($category, $this->currentMember->getID());
+			}
+			
+			redirect(base_url().'events/view/'.$event_id, 'refresh', 200);
+		}
 	}
 	
-	private function _getCurrentUser() {
+	private function _getCurrentMember() {
 		return $this->currentMember;
 	}
 }
