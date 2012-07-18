@@ -60,5 +60,9 @@ class event_model extends CI_Model {
 		$this->db->insert('attendance', array('category_id' => $categoryID, 'member_id' => $memberID));
 		return $this->db->insert_id();
 	}
+	
+	public function deleteAttendance($category_id, $member_id) {
+		$this->db->delete('attendance', array('category_id' => $category_id, 'member_id' => $member_id));
+	}
 }
 ?>

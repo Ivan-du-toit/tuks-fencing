@@ -101,12 +101,28 @@ class Events extends CI_Controller
 			$event_id = $this->input->post('event_id', TRUE);
 			$categories = $this->input->post('categories', TRUE);
 			
+			$oldCategories = $this->event_model->getCategories($event_id, $this->currentMember->getID());
+			foreach ($oldCategories as $cat) {
+				if ($cat->attend)
+					$this->event_model->deleteAttendance($cat->id, $this->currentMember->getID());
+			}
+			
 			foreach($categories as $category) {
 				$this->event_model->registerForCategory($category, $this->currentMember->getID());
 			}
 			
 			redirect(base_url().'events/view/'.$event_id, 'refresh', 200);
 		}
+	}
+	
+	public function delete() {
+		if (!$this->currentMember->isAdmin()) {
+			$this->load->view('no_access');
+			return;
+		}
+		$id = $this->uri->segment(3, -1);
+		$this->event_model->deleteEvent($id);
+		redirect(base_url().'events', 'refresh', 200);
 	}
 	
 	private function _getCurrentMember() {

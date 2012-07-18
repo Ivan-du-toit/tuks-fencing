@@ -9,8 +9,8 @@
 					<a href="<?php echo base_url(); ?>">HOME</a>
 					<a href="events">EVENTS</a>
 					<a href="news">NEWS</a>
-					<a href="web/join-us">JOIN US</a>
-					<a href="web/about-us">ABOUT US</a>
+					<a href="web/join_us">JOIN US</a>
+					<a href="web/about_us">ABOUT US</a>
 				</div>
 			</div>
 		</div>
