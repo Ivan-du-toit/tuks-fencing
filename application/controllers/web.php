@@ -30,7 +30,7 @@ class Web extends CI_Controller {
 	public function index() {
 		$this->load->model('news_model');
 		$this->load->helper(array('form', 'url'));
-		$this->data['entries'] = $this->news_model->get_last_ten_entries();
+		$this->data['entries'] = $this->news_model->get_latest_entry();
 		$this->load->view('header', $this->data);
 		$this->load->view('home_view', $this->data);
 		$this->load->view('footer', $this->data);

@@ -10,7 +10,13 @@ class news_model extends CI_Model {
         // Call the Model constructor
         parent::__construct();
     }
-    
+    function get_latest_entry()
+	{
+		$this->db->order_by("date", "desc");
+		$query = $this->db->get('news', 1);
+        return $query->result();
+	}
+	
     function get_last_ten_entries()
     {
 		$this->db->order_by("date", "desc");
