@@ -66,9 +66,9 @@ class Members extends CI_Controller {
 					$weapons[] = $weapon;
 				$DoB = strtotime($this->input->post('dob', TRUE));
 				
-				$this->members_model->newMember($email, $password, $name, $surname, $DoB, $weapons);
-				
-				redirect(base_url(), 'location', 200);
+				$id = $this->members_model->newMember($email, $password, $name, $surname, $DoB, $weapons);
+				$this->session->set_userdata('member_id', $id);
+				redirect(base_url(), 'refresh', 200);
 			} else
 				$this->load->view('register_view');
 		} else
