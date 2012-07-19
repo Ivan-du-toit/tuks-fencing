@@ -14,7 +14,16 @@
 			<div id="header">
 				<a href="<?php echo base_url(); ?>"><img id="logo" src="images/TUKS_Fencing_Club_Header.png" alt="logo"/></a>
 				<?php if (!$member->isMember()) : ?>
-				<div class="login_register"><a href="#" class="login_btn">Login<div class="triangle"></div></a>/<a href="<?php echo base_url(); ?>members/register">Register</a></div>
+				<div class="login_register">
+					<a href="#" class="login_btn">Login<div class="triangle"></div></a>/<a href="<?php echo base_url(); ?>members/register">Register</a>
+				</div>
+				
+				<?php else :?>
+					<div class="member_box">
+						<?php echo anchor("members/profile/{$member->getID()}", $member->getName());?>
+						/<a href="members/logout">Logout</a>
+					</div>
+				<?php endif; ?>
 				
                 <div id="login_box">
                     <!--div id="login_box_content"></div-->
@@ -27,12 +36,6 @@
                         </form>
                     </div>
                 </div>
-				<?php else :?>
-					<div id="member_box">
-						<?php echo anchor("members/profile/{$member->getID()}", $member->getName());?>
-						<a href="members/logout">Logout</a>
-					</div>
-				<?php endif; ?>
 				<div class="headerLinks">
 					<a href="<?php echo base_url(); ?>">HOME</a>
 					<a href="events">EVENTS</a>
