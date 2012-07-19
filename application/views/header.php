@@ -14,7 +14,7 @@
 			<div id="header">
 				<a href="<?php echo base_url(); ?>"><img id="logo" src="images/TUKS_Fencing_Club_Header.png" alt="logo"/></a>
 				<?php if (!$member->isMember()) : ?>
-				<span><a href="#" class="login_btn">Login<div class="triangle"></div></a>/<a href="<?php echo base_url(); ?>members/register">Register</a></span>
+				<div class="login_register"><a href="#" class="login_btn">Login<div class="triangle"></div></a>/<a href="<?php echo base_url(); ?>members/register">Register</a></div>
 				
                 <div id="login_box">
                     <!--div id="login_box_content"></div-->
@@ -41,4 +41,5 @@
 					<a href="web/about_us">ABOUT US</a>
 				</div>
 			</div>
+			<hr id="header_line" />
 			<div id="content">
