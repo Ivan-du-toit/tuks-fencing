@@ -1,10 +1,13 @@
-				<img src="images/mainBanner.jpg" alt="main banner"/>
-				<div id="wrapper" style="width: 950px; overflow: hidden;">
-				<div style="width: 525px; float: left;">
-				
-				<a href="web/join_us"><img src="images/Join_Us.jpg" alt="Join Us"/></a>
-				<a href="events"><img src="images/Events.jpg" alt="Events"/></a>
-				<a href="web/about_us"><img src="images/About_Us.jpg" alt="About Us"/></a>
+				<div class="offsetImg">
+					<img id="main_banner" src="images/mainBanner.jpg" alt="main banner"/>
+					<div id="wrapper" style="width: 950px; overflow: hidden;">
+						<div style="width: 525px; float: left;">
+						
+							<a href="web/join_us"><img src="images/Join_Us.jpg" alt="Join Us"/></a>
+							<a href="events"><img src="images/Events.jpg" alt="Events"/></a>
+							<a href="web/about_us"><img src="images/About_Us.jpg" alt="About Us"/></a>
+						</div>
+					</div>
 				
 				</div>
 				
@@ -16,5 +19,4 @@
 					<?php endforeach; ?>
 					
 					
-				</div>
 				</div>
