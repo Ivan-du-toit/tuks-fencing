@@ -36,7 +36,7 @@
                 </select>
             </td>
 			<td>
-                <input type="datetime" value="{{start_time}}"/>
+                <input name="start_times[]" type="datetime" value="{{start_time}}"/>
             </td>
             <td>
                 <input type="button" value="Remove Category" ng-click="removeCategory(cat.id)">

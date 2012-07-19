@@ -36,7 +36,7 @@ class event_model extends CI_Model {
     }
 
     public function addEvent($name, $description, $location, $start_date, $end_date, $categories){
-        $this->db->insert('event', array('name' => $name, 'description' => $description, 'start_date' => $start_date, 'end_date' => $end_date));
+        $this->db->insert('event', array('name' => $name, 'description' => $description, 'start_date' => $start_date, 'end_date' => $end_date, 'location' => $location));
 		$id = $this->db->insert_id();
 		foreach ($categories as $category) {
 			$this->db->insert('event_category', array('event_id' => $id, 'weapon' => $category['weapon'], 'age' => $category['age'], 'gender' => $category['gender'], 'start_time' => $category['start_time']));
