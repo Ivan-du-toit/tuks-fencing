@@ -50,5 +50,10 @@ class news_model extends CI_Model {
 		return $query->result();
 	}
 	
+	function delete_entry($id)
+	{
+		$this->db->delete('news', array('id' => $id));
+	}
+	
 }
 ?>

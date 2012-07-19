@@ -100,6 +100,21 @@ class News extends CI_Controller {
 	
 	public function delete($postid = 0)
 	{
+		$user = $this->_getCurrentUser();
+		$this->load->model('news_model');
+		
+		if ($user->isAdmin())
+		{
+			$this->news_model->delete_entry($postid);
+			redirect('/news', 'refresh', 200);
+		}
+		else
+		{
+			$this->load->view('header', $this->data);
+			$this->load->view('no_access');
+			$this->load->view('footer', $this->data);
+		}
+		
 		
 	
 	}

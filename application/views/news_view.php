@@ -65,7 +65,16 @@
 	</style>
 </head>
 <body>
-
+<script type="text/javascript">
+function confirm_delete(link)
+{
+	var choice = confirm("Are you sure you want to delete this post?")
+	if (choice == true)
+	{
+		window.location = link
+	}
+}
+</script>
 <div id="container">
 	<h1>Latest News</h1>
 
@@ -81,9 +90,11 @@
 		<p><b><?php echo 'Posted on '.$entry->date; ?></b></p>
 		<?php
 			if ($user->isAdmin()) {?>
-				<p><?=anchor('news/edit/'.$entry->id, 'Edit Post');?></p> 
+				<p>
+				<?=anchor('news/edit/'.$entry->id, 'Edit Post');?>
+				<?php echo '<a href="javascript:confirm_delete(\'news/delete/'.$entry->id.'\')">Delete Post</a>' ?>
+				</p> 
 				<?php }
-			
 		?>
 		<?php endforeach; ?>
 		<?php
