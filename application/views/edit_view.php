@@ -1,9 +1,4 @@
-<html>
-<head>
-<title>Edit News Entry</title>
-</head>
-<body>
-<script type="text/javascript" src="../../js/tiny_mce/tiny_mce.js"></script>
+<script type="text/javascript" src="js/tiny_mce/tiny_mce.js"></script>
 <script type="text/javascript">
 
 tinyMCE.init({
@@ -31,9 +26,8 @@ tinyMCE.init({
 });
 
 </script>
-<?php echo validation_errors(); ?>
 
-<?php if (isset($error)) echo $error; ?>
+<?php echo validation_errors(); ?>
 
 <?php foreach ($post as $entry) :?>
 
@@ -48,6 +42,3 @@ tinyMCE.init({
 <input type="submit" value="Update Post" formnovalidate="true"/>
 <?php endforeach; ?>
 </form>
-
-</body>
-</html>

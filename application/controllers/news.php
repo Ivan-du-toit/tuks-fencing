@@ -33,18 +33,20 @@ class News extends CI_Controller {
 		$this->load->helper(array('form', 'url'));
 		$this->data['entries'] = $this->news_model->get_last_ten_entries();
 		$this->data['user'] = $this->_getCurrentUser();
+		$this->load->view('header', $this->data);
 		$this->load->view('news_view', $this->data);
+		$this->load->view('footer', $this->data);
 	}
 	
 	public function create()
 	{
 		$user = $this->_getCurrentUser();
+		$this->load->helper(array('form', 'url'));
+		$this->load->library('form_validation');
 		$this->load->model('news_model');
-		
+		$this->load->view('header', $this->data);
 		if ($user->isAdmin())
 		{
-			$this->load->helper(array('form', 'url'));
-			$this->load->library('form_validation');
 			
 			if ($title = $this->input->post('title', TRUE)) {
 				$this->form_validation->set_rules('title', 'Title', 'required');
@@ -56,27 +58,32 @@ class News extends CI_Controller {
 					$userid = $user->getID();
 					
 					$this->news_model->insert_entry($title, $content, $userid);
-					redirect(base_url(), 'refresh', 200);
+					redirect('/news', 'refresh', 200);
 				}
-				else
+				else {
+					
 					$this->load->view('create_view');
+				}
 			}
-			else
+			else {
 				$this->load->view('create_view');
+			}
 		}
 		else
 			$this->load->view("no_access");
+		
+		$this->load->view('footer', $this->data);
 	}
 	
 	public function edit($postid = 0)
 	{
 		$user = $this->_getCurrentUser();
+		$this->load->helper(array('form', 'url'));
+		$this->load->library('form_validation');
 		$this->load->model('news_model');
-		
+		$this->load->view('header', $this->data);
 		if ($user->isAdmin())
 		{
-			$this->load->helper(array('form', 'url'));
-			$this->load->library('form_validation');
 			
 			if ($title = $this->input->post('title', TRUE)) {
 				$this->form_validation->set_rules('title', 'Title', 'required');
@@ -87,17 +94,20 @@ class News extends CI_Controller {
 					$content = $this->input->post('content');
 					
 					$this->news_model->update_entry($postid, $title, $content);
-					//redirect(base_url(), 'refresh', 200);
-					redirect('/', 'refresh', 200);
+					redirect(base_url(), 'refresh', 200);
 				}
-				else
+				else {
 					$this->load->view('edit_view');
+				}
 			}
-			else
+			else {
 				$this->load->view('edit_view', array('post' => $this->news_model->retrieve_entry($postid)));
+			}
 		}
 		else
 			$this->load->view("no_access");
+		
+		$this->load->view('footer', $this->data);
 	}
 		
 	private function _getCurrentUser() {

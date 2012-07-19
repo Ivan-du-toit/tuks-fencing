@@ -67,12 +67,17 @@
 <body>
 
 <div id="container">
-	<h1>Welcome to Tuks fencing!</h1>
+	<h1>Latest News</h1>
 
 	<div id="body">
+		<?php
+			if ($user->isAdmin()) {?>
+				<p><a href="news/create/">Create New Post</a></p> 
+				<?php }
+		?>
 		<?php foreach ($entries as $entry) :?>
-		<h3><?php echo nl2br($entry->title); ?></h3>
-		<p><?php echo nl2br($entry->content); ?></p>
+		<h3><?php echo $entry->title; ?></h3>
+		<p><?php echo $entry->content; ?></p>
 		<p><b><?php echo 'Posted on '.$entry->date; ?></b></p>
 		<?php
 			if ($user->isAdmin()) {?>
@@ -81,9 +86,12 @@
 			
 		?>
 		<?php endforeach; ?>
+		<?php
+			if ($user->isAdmin()) {?>
+				<p><a href="news/create/">Create New Post</a></p> 
+				<?php }
+		?>
 	</div>
-
-	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds</p>
 </div>
 
 </body>

@@ -1,19 +1,15 @@
-<html>
-<head>
-<title>Create News Entry</title>
-</head>
-<body>
-<script type="text/javascript" src="../js/tiny_mce/tiny_mce.js"></script>
+<script type="text/javascript" src="js/tiny_mce/tiny_mce.js"></script>
 <script type="text/javascript">
 
 tinyMCE.init({
 
 	// General options
 
-	mode : "textareas",
+	mode : "specific_textareas",
 	theme : "advanced",
 	plugins : "autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave",
-
+	
+    
 	// Theme options
 	
 	theme_advanced_buttons1 : "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,styleselect,formatselect,fontselect,fontsizeselect",
@@ -34,8 +30,6 @@ tinyMCE.init({
 
 <?php echo validation_errors(); ?>
 
-<?php if (isset($error)) echo $error; ?>
-
 <?php echo form_open('news/create'); ?>
 
 <h4>Title</h4>
@@ -45,6 +39,3 @@ tinyMCE.init({
 <br/>
 <input type="submit" value="Create Post" formnovalidate="true"/>
 </form>
-
-</body>
-</html>
