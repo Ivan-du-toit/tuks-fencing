@@ -3,7 +3,7 @@
 -- Server version:               5.5.16 - MySQL Community Server (GPL)
 -- Server OS:                    Win32
 -- HeidiSQL version:             7.0.0.4053
--- Date/time:                    2012-07-18 16:15:58
+-- Date/time:                    2012-07-19 14:18:22
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -47,12 +47,12 @@ CREATE TABLE IF NOT EXISTS `event_category` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `event_id` int(10) unsigned NOT NULL,
   `weapon` enum('Epee','Foil','Saber') NOT NULL,
-  `age` enum('U13','U15','U18','U20') NOT NULL,
+  `age` enum('U13','U15','U18','U20','Senior','Veterans') NOT NULL,
   `start_time` varchar(50) DEFAULT NULL,
   `gender` enum('Female','Male') NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_event_categories_event` (`event_id`),
-  CONSTRAINT `FK_event_categories_event` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`)
+  CONSTRAINT `FK_event_categories_event` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.

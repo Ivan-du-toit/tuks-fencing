@@ -83,6 +83,7 @@ class Members extends CI_Controller {
 
 	public function profile() {
 		$this->load->view('header', $this->data);
+		$this->data['user'] = $this->currentMember;
 		$this->load->view('profile_view', $this->data);
 		$this->load->view('footer', $this->data);
 	}

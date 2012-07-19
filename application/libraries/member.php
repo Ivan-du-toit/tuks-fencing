@@ -45,6 +45,10 @@ class member extends user {
 		return $this->data->name.' '.$this->data->surname;
 	}
 	
+	function getDateOfBirth() {
+		return $this->data->birth_date;
+	}
+	
 	/**
 	* @param string $password
 	* 
