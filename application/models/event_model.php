@@ -7,6 +7,7 @@ class event_model extends CI_Model {
     
     public function listEvents($year) {
 		$this->db->where(array('start_date >' => $year));
+		$this->db->order_by('start_date');
 		$result = $this->db->get('event');
 		return $result->result_object();
     }
