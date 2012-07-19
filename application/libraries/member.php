@@ -49,6 +49,10 @@ class member extends user {
 		return $this->data->birth_date;
 	}
 	
+	function getWeapons() {
+		return explode(',', $this->data->weapons);
+	}
+	
 	/**
 	* @param string $password
 	* 
