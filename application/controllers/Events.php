@@ -48,7 +48,6 @@ class Events extends CI_Controller
 			$genders = $this->input->post('genders', TRUE);
 			$ages = $this->input->post('ages', TRUE);
 			$times = $this->input->post('start_times', TRUE);
-			
 			$categories = array();
 			foreach($weapons as $key => $weapon) {
 				$categories[] = array('weapon' => $weapon, 'gender' => $genders[$key], 'age' => $ages[$key], 'start_time' => $times[$key]);
