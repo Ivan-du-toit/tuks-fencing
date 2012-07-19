@@ -37,7 +37,7 @@ tinyMCE.init({
 <h4>Title</h4>
 <input type="text" required name="title" value="<?php echo $entry->title ?>" size="50"/>
 <h4>Content</h4>
-<textarea name="content" required value="" cols="40" rows="10"><?php echo $entry->content ?></textarea>
+<textarea name="content" required cols="40" rows="10"><?php echo $entry->content ?></textarea>
 <br/>
 <input type="submit" value="Update Post" formnovalidate="true"/>
 <?php endforeach; ?>

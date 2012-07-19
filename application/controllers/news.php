@@ -47,30 +47,24 @@ class News extends CI_Controller {
 		$this->load->view('header', $this->data);
 		if ($user->isAdmin())
 		{
+			$this->form_validation->set_rules('title', 'Title', 'required');
+			$this->form_validation->set_rules('content', 'Content', 'required');
 			
-			if ($title = $this->input->post('title', TRUE)) {
-				$this->form_validation->set_rules('title', 'Title', 'required');
-				$this->form_validation->set_rules('content', 'Content', 'required');
+			if ($this->form_validation->run()) {
+				$title = $this->input->post('title');
+				$content = $this->input->post('content');
+				$userid = $user->getID();
 				
-				if ($this->form_validation->run()) {
-					$title = $this->input->post('title');
-					$content = $this->input->post('content');
-					$userid = $user->getID();
-					
-					$this->news_model->insert_entry($title, $content, $userid);
-					redirect('/news', 'refresh', 200);
-				}
-				else {
-					
-					$this->load->view('create_view');
-				}
+				$this->news_model->insert_entry($title, $content, $userid);
+				redirect('/news', 'refresh', 200);
 			}
 			else {
+				
 				$this->load->view('create_view');
 			}
 		}
 		else
-			$this->load->view("no_access");
+			$this->load->view('no_access');
 		
 		$this->load->view('footer', $this->data);
 	}
@@ -84,30 +78,30 @@ class News extends CI_Controller {
 		$this->load->view('header', $this->data);
 		if ($user->isAdmin())
 		{
+			$this->form_validation->set_rules('title', 'Title', 'required');
+			$this->form_validation->set_rules('content', 'Content', 'required');
 			
-			if ($title = $this->input->post('title', TRUE)) {
-				$this->form_validation->set_rules('title', 'Title', 'required');
-				$this->form_validation->set_rules('content', 'Content', 'required');
+			if ($this->form_validation->run()) {
+				$title = $this->input->post('title');
+				$content = $this->input->post('content');
 				
-				if ($this->form_validation->run()) {
-					$title = $this->input->post('title');
-					$content = $this->input->post('content');
-					
-					$this->news_model->update_entry($postid, $title, $content);
-					redirect(base_url(), 'refresh', 200);
-				}
-				else {
-					$this->load->view('edit_view');
-				}
+				$this->news_model->update_entry($postid, $title, $content);
+				redirect(base_url(), 'refresh', 200);
 			}
 			else {
 				$this->load->view('edit_view', array('post' => $this->news_model->retrieve_entry($postid)));
 			}
 		}
 		else
-			$this->load->view("no_access");
+			$this->load->view('no_access');
 		
 		$this->load->view('footer', $this->data);
+	}
+	
+	public function delete($postid = 0)
+	{
+		
+	
 	}
 		
 	private function _getCurrentUser() {
