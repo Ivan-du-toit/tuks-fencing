@@ -1,7 +1,7 @@
 <h2>PRACTICE TIMES AND VENUES</h2>
 
 <p>TuksFencing takes place at the Groenkloof Campus.</p>
-<table>
+<table id="time_table">
 	<thead>
 		<tr><td>Day</td><td>Group</td><td>Time</td></tr>
 	</thead>
