@@ -41,9 +41,9 @@ body {
 }
 
 .headerLinks {
-	margin-top:-75px;
+	margin-top:-80px;
 	margin-bottom:60px;
-	margin-left:325px;
+	margin-left:400px;
 	
 	font-family:Lao,Arial,Georgia;
 	
@@ -51,7 +51,7 @@ body {
 }
 
 .headerLinks a {
-	margin-left:30px;
+	margin-left:20px;
 }
 
 .headerLinks a:link
