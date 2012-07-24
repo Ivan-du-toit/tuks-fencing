@@ -20,7 +20,7 @@
 	a {
 		color: #003399;
 		background-color: transparent;
-		font-weight: normal;
+		/*font-weight: normal;*/
 	}
 
 	h1 {
@@ -85,9 +85,12 @@ function confirm_delete(link)
 				<?php }
 		?>
 		<?php foreach ($entries as $entry) :?>
-		<h3><?php echo $entry->title; ?></h3>
+		<div class="news_header">
+			<h3 class="news_heading"><?php echo $entry->title; ?></h3>
+			<p><b><?php echo 'Posted on '.$entry->date; ?></b></p>
+		</div>
+		<hr class="news_break" />
 		<p><?php echo $entry->content; ?></p>
-		<p><b><?php echo 'Posted on '.$entry->date; ?></b></p>
 		<?php
 			if ($user->isAdmin()) {?>
 				<p>
