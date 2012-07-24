@@ -49,7 +49,7 @@ body {
 	margin-bottom:60px;
 	margin-left:390px;
 	
-	font-family:Lao,Arial,Georgia;
+	font-family:GputeksRegular,Arial,Georgia;
 	
 	font-size:12pt;
 }
@@ -82,15 +82,37 @@ body {
 	color:#e30033;
 }
 
-@font-face 
-{
-    font-family: 'Lao';
-    src: url('../fonts/Lao_UI.ttf');
+@font-face {
+	font-family: 'Copper';
+	
+	src: url('../fonts/copperplate-gothic-light-webfont.eot');
+	src: url('../fonts/copperplate-gothic-light-webfont.svg');
+	src: url('../fonts/copperplate-gothic-light-webfont.ttf');
+	src: url('../fonts/copperplate-gothic-light-webfont.woff');
 }
 
 @font-face {
-	font-family: 'Copper';
-	src: url('../fonts/copperplate-gothic-light.ttf');
+    font-family: 'GputeksRegular';
+    src: url('Gputeks-Regular-webfont.eot');
+    src: url('Gputeks-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Gputeks-Regular-webfont.woff') format('woff'),
+         url('Gputeks-Regular-webfont.ttf') format('truetype'),
+         url('Gputeks-Regular-webfont.svg#GputeksRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'GputeksBold';
+    src: url('Gputeks-Bold-webfont.eot');
+    src: url('Gputeks-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Gputeks-Bold-webfont.woff') format('woff'),
+         url('Gputeks-Bold-webfont.ttf') format('truetype'),
+         url('Gputeks-Bold-webfont.svg#GputeksBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
 #login_box {
@@ -163,7 +185,7 @@ body {
 }
 
 #login_box {
-	font-family:Lao,Arial,Georgia;
+	font-family:GputeksRegular,Arial,Georgia;
 
 	position:absolute;
 	top:inherit;
@@ -270,4 +292,16 @@ body {
 
 #member_update_submit {
 	margin-left:-20px;
+}
+
+.create_event_offset {
+	margin-left:20px;
+}
+
+#create_event h4 {
+	margin-bottom:5px;
+}
+
+#create_event_table {
+	margin-top:40px;
 }
