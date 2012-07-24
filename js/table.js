@@ -3,7 +3,7 @@ function TableCtrl($scope) {
         {'weapon':'Epee', 'age':'U13', 'gender':'Female', 'start_time':'', 'id':0}
     ];
     $scope.weapons = ['Epee', 'Foil', 'Saber'];
-    $scope.ages = ['U13', 'U15', 'U18', 'U20', 'Senior', 'Veterans'];
+    $scope.ages = ['U13', 'U15', 'U17', 'U20', 'Senior', 'Veterans', 'Open'];
     $scope.genders = ['Female', 'Male'];
 
     $scope.addCategory = function() {

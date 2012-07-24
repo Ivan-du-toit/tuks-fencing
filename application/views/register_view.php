@@ -26,9 +26,9 @@
 
 <fieldset>
 <legend>Weapon(s)</legend>
-<input type="checkbox" name="weapons[]" value="Epee">Epee</input>
-<input type="checkbox" name="weapons[]" value="Foil">Foil</input>
-<input type="checkbox" name="weapons[]" value="Saber">Saber</input>
+<input type="checkbox" name="weapons[]" value="Epee" <?php echo set_checkbox('weapons[]', 'Epee'); ?>>Epee</input>
+<input type="checkbox" name="weapons[]" value="Foil" <?php echo set_checkbox('weapons[]', 'Foil'); ?>>Foil</input>
+<input type="checkbox" name="weapons[]" value="Saber" <?php echo set_checkbox('weapons[]', 'Saber'); ?>>Saber</input>
 </fieldset>
 
 <div><input type="submit" value="Submit" /></div>

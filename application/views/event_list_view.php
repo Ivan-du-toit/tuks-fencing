@@ -1,3 +1,4 @@
+<h2>Event Calendar</h2>
 <?php if ($member->isAdmin()): ?>
 <div id="admin-panel">
 	<a href="events/create">Create Event</a>

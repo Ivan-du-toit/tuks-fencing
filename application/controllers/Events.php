@@ -2,7 +2,7 @@
 
 require_once('application/libraries/member.php');
 
-class Events extends CI_Controller
+class events extends CI_Controller
 {	
 	public function __construct()
 	{

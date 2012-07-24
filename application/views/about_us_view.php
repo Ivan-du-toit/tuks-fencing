@@ -1,3 +1,4 @@
+<h2>About Us</h2>
 <p>TuksFencing Club was established in 1951. Since then, the club delivered many Olympic and World Championship fencers, as well as SA champions.</p>
 <p>The club is affiliated to Northern Gauteng Fencing Union (NGFU), which in turn is an affiliate of the South African Amateur Fencing Association (SAAFA).  TuksFencing club is an open club, which accommodates the students, staff and even community members.</p>
 <p>Although fencing is an Olympic sport, it is suitable for participants of all ages. Anyone from 8 – 80 years can compete and enjoy the sport for recreational purposes. Agility, fast reactions, and tactical thinking are the prime requirements for fencers.</p>
