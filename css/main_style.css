@@ -305,3 +305,19 @@ body {
 #create_event_table {
 	margin-top:40px;
 }
+
+thead > tr > td {
+	color : white;
+	background-color:black;
+	text-align: center;
+}
+
+td {
+	border: 1px solid black;
+	padding: 3px;
+}
+
+table {
+	border-collapse:collapse;
+	width: 800px;
+}
