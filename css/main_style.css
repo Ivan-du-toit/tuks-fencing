@@ -249,3 +249,13 @@ body {
 	font-weight:bold;
 	border-spacing:0px;
 }
+
+#member_profile {
+	margin-left:40px;
+}
+
+#member_profile h3 {
+	margin-left:-20px;
+	margin-bottom:5px;
+	margin-top:30px;
+}

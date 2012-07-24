@@ -14,6 +14,7 @@
 <input type="date" required name="end_date" value="<?php echo set_value('end_date', ''); ?>" size="50" placeholder="Date of the last category"/>
 <script src="<?php echo base_url(); ?>js/angular-1.0.1.min.js"></script>
 <script src="<?php echo base_url(); ?>js/table.js"></script>
+<hr />
 <table ng-app ng-controller="TableCtrl">
     <thead>
         <tr><td>Weapon</td><td>Gender</td><td>Age Group</td><td>Start Time</td><td><input type="button" value="Add Category" ng-click="addCategory()"></td></tr>
@@ -44,7 +45,7 @@
         </tr>
     </tbody>
 </table>
-
+<hr />
 <div><input type="submit" value="Submit" /></div>
 
 </form>
