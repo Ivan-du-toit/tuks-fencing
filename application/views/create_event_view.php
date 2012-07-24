@@ -1,3 +1,4 @@
+<h2>Create New Event</h2>
 <?php echo validation_errors(); ?>
 
 <?php echo form_open('events/create'); ?>

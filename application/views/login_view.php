@@ -1,3 +1,4 @@
+<h2>Member Login: </h2>
 <?php echo validation_errors(); ?>
 
 <?php if (isset($error)) echo $error; ?>

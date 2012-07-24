@@ -54,6 +54,7 @@ class Members extends CI_Controller {
 			$this->form_validation->set_rules('name', 'Name', 'trim|required|xss_clean');
 			$this->form_validation->set_rules('surname', 'Surname', 'trim|required|xss_clean');
 			$this->form_validation->set_rules('DOB', 'Date Of Birth', 'trim|required|xss_clean');
+			$this->form_validation->set_rules('weapons[]', 'Weapons', 'trim');
 			
 			if ($this->form_validation->run()) {
 			
@@ -62,12 +63,10 @@ class Members extends CI_Controller {
 				$name = $this->input->post('name', TRUE);
 				$surname = $this->input->post('surname', TRUE);
 				$weapons = array();
-				$weapon_post = $this->input->post('weapons', TRUE);
-				if (sizeof($weapon_post) > 0) {
-					foreach ($weapon_post as $weapon) 
-						$weapons[] = $weapon;
-				}
-				$DoB = strtotime($this->input->post('DOB', TRUE));
+				foreach ($this->input->post('weapons', TRUE) as $weapon) 
+					$weapons[] = $weapon;
+				$DoB = strtotime($this->input->post('dob', TRUE));
+				
 				$id = $this->members_model->newMember($email, $password, $name, $surname, $DoB, $weapons);
 				$this->session->set_userdata('member_id', $id);
 				redirect(base_url(), 'refresh', 200);
