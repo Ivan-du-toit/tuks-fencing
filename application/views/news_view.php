@@ -20,7 +20,7 @@
 	a {
 		color: #003399;
 		background-color: transparent;
-		/*font-weight: normal;*/
+		font-weight: normal;
 	}
 
 	h1 {
@@ -80,31 +80,33 @@ function confirm_delete(link)
 
 	<div id="body">
 		<?php
+		if ($results != null) {
 			if ($user->isAdmin()) {?>
 				<p><a href="news/create/">Create New Post</a></p> 
 				<?php }
 		?>
-		<?php foreach ($entries as $entry) :?>
-		<div class="news_header">
-			<h3 class="news_heading"><?php echo $entry->title; ?></h3>
-			<p><b><?php echo 'Posted on '.$entry->date; ?></b></p>
-		</div>
-		<hr class="news_break" />
-		<p><?php echo $entry->content; ?></p>
+		<?php 
+			foreach ($results as $data) {?>
+		<h3><?php echo $data->title; ?></h3>
+		<p><?php echo $data->content; ?></p>
+		<p><b><?php echo 'Posted on '.$data->date; ?></b></p>
 		<?php
 			if ($user->isAdmin()) {?>
 				<p>
-				<?=anchor('news/edit/'.$entry->id, 'Edit Post');?>
-				<?php echo '<a href="javascript:confirm_delete(\'news/delete/'.$entry->id.'\')">Delete Post</a>' ?>
+				<?=anchor('news/edit/'.$data->id, 'Edit Post')?>
+				<?php echo '<a href="javascript:confirm_delete(\'news/delete/'.$data->id.'\')">Delete Post</a>' ?>
 				</p> 
 				<?php }
 		?>
-		<?php endforeach; ?>
+		<?php } 
+		}?>
 		<?php
 			if ($user->isAdmin()) {?>
-				<p><a href="news/create/">Create New Post</a></p> 
+				<p><a href="news/create/">Create New Post</a></p>
 				<?php }
 		?>
+		<p><?php echo $links; ?></p>
+		
 	</div>
 </div>
 

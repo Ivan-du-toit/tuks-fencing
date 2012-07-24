@@ -17,12 +17,27 @@ class news_model extends CI_Model {
         return $query->result();
 	}
 	
-    function get_last_ten_entries()
+    function get_all_entries($limit, $start)
     {
-		$this->db->order_by("date", "desc");
-        $query = $this->db->get('news', 10);
-        return $query->result();
+		$this->db->limit($limit, $start);
+		$this->db->order_by('date', 'desc');
+        $query = $this->db->get('news');
+		
+		if ($query->num_rows() > 0)
+		{
+			foreach($query->result() as $row)
+			{
+				$data[] = $row;
+			}
+			return $data;
+		}
+		return false;
     }
+	
+	function record_count()
+	{
+		return $this->db->count_all('news');
+	}
 
     function insert_entry($title, $content, $author)
     {
