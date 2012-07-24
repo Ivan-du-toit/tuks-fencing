@@ -58,7 +58,7 @@ class Members extends CI_Controller {
 			
 			if ($this->form_validation->run()) {
 			
-				$email = $this->input->post('email');
+				$email = $this->input->post('email', TRUE);
 				$password = $this->input->post('password');
 				$name = $this->input->post('name', TRUE);
 				$surname = $this->input->post('surname', TRUE);
@@ -84,6 +84,33 @@ class Members extends CI_Controller {
 
 	public function profile() {
 		$this->load->view('header', $this->data);
+		$this->data['user'] = $this->currentMember;
+		$this->load->view('profile_view', $this->data);
+		$this->load->view('footer', $this->data);
+	}
+	
+	public function update_profile() {
+		$this->load->library('form_validation');
+		$this->load->view('header', $this->data);
+		$this->form_validation->set_rules('email', 'E-Mail', 'trim|required|valid_email');
+		$this->form_validation->set_rules('conf-email', 'E-Mail Confirmation', 'trim|required|matches[email]');
+		$this->form_validation->set_rules('weapons[]', 'Weapons', 'trim');
+		
+		if ($this->form_validation->run()) {
+			$member_data['email'] = $this->input->post('email', TRUE);
+			$password = $this->input->post('password');
+			if ($password != '')
+				$member_data['password'] = $this->currentMember->hashPassword($password);
+			$weapons = array();
+			$weapon_data = $this->input->post('weapons', TRUE);
+			if (sizeof($weapon_data) > 0) {
+				foreach ($weapon_data as $weapon)
+					$weapons[] = $weapon;
+				$member_data['weapons'] = implode(',', $weapons);
+			}
+			$this->members_model->update($this->currentMember->getID(), $member_data);
+			redirect('members/profile', 'refresh', 200);
+		}
 		$this->data['user'] = $this->currentMember;
 		$this->load->view('profile_view', $this->data);
 		$this->load->view('footer', $this->data);

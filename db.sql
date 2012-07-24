@@ -3,7 +3,7 @@
 -- Server version:               5.5.16 - MySQL Community Server (GPL)
 -- Server OS:                    Win32
 -- HeidiSQL version:             7.0.0.4053
--- Date/time:                    2012-07-19 14:18:22
+-- Date/time:                    2012-07-24 20:58:22
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `event_category` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `event_id` int(10) unsigned NOT NULL,
   `weapon` enum('Epee','Foil','Saber') NOT NULL,
-  `age` enum('U13','U15','U18','U20','Senior','Veterans') NOT NULL,
+  `age` enum('U13','U15','U17','U20','Senior','Veterans','Open') NOT NULL,
   `start_time` varchar(50) DEFAULT NULL,
   `gender` enum('Female','Male') NOT NULL,
   PRIMARY KEY (`id`),

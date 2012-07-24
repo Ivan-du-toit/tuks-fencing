@@ -1,7 +1,7 @@
 <div id="member_profile">
-	
+	<?php echo validation_errors(); ?>
 	<h2>Member Profile: </h2>
-	<?php echo form_open('', array('method' => 'POST'), array('id' => $user->getID())); ?>
+	<?php echo form_open('members/update_profile', array('method' => 'POST'), array('id' => $user->getID())); ?>
 	<h3>Name: </h3><?php echo $user->getName(); ?>
 	
 	<h3>Birth Date: </h3><?php echo $user->getDateOfBirth(); ?>
@@ -18,8 +18,14 @@
 	
 	<h3>Email:</h3>
 	<input name="email" type="email" value="<?php echo $user->getEmail(); ?>"/>
-	</br></br>
+	<h3>Confirm Email:</h3>
+	<input name="conf-email" type="email" value="<?php echo $user->getEmail(); ?>"/>
+	<h3>Password:</h3>
+	<input name="password" type="password""/>
+	<h3>Confirm Email:</h3>
+	<input name="conf-pass" type="password"/>
 	
+	</br></br>	
 	<input id="member_update_submit" type="submit" value="Update details"/>
 	</form>
 </div>
