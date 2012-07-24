@@ -236,3 +236,12 @@ body {
 	margin-bottom: 5px;
 	margin-top: -30px;
 }
+
+#time_table {
+	border-spacing:15px;
+}
+
+#time_table thead {
+	font-weight:bold;
+	border-spacing:0px;
+}
