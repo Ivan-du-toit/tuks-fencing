@@ -53,6 +53,10 @@ class member extends user {
 		return explode(',', $this->data->weapons);
 	}
 	
+	function getEmail() {
+		return $this->data->email;
+	}
+	
 	/**
 	* @param string $password
 	* 
