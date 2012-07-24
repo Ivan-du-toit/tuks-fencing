@@ -257,7 +257,7 @@ body {
 }
 
 #main_banner {
-	float:left;
+	/*float:left;*/
 	
 	margin-bottom: 5px;
 	margin-top: -30px;
