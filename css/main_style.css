@@ -337,3 +337,21 @@ table {
 .news_header {
 	display:inline;
 }
+
+#latest_news_time {
+	color:#7f7f7f;
+	
+	margin-left:180px;
+	margin-bottom:0px;
+	margin-top:0px;
+}
+
+#latestNews {
+	margin-right:30px;
+	margin-left:-20px;
+}
+
+#latestNews h3 {
+	margin-bottom:0px;
+	margin-top:0px;
+}
