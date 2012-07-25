@@ -12,7 +12,8 @@
 	<body>
 		<div class="mainDiv">
 			<div id="header">
-				<a href="<?php echo base_url(); ?>"><img id="logo" src="images/TUKS_Fencing_Club_Header.png" alt="logo"/></a>
+				<a href="<?php echo base_url(); ?>"><div id="logo_patch"></div></a>
+				<img id="logo" src="images/TUKS_Fencing_Club_Header.png" alt="logo"/>
 				<?php if (!$member->isMember()) : ?>
 				<div class="login_register">
 					<a href="#" class="login_btn">Login<div class="triangle"></div></a>/<a href="<?php echo base_url(); ?>members/register">Register</a>

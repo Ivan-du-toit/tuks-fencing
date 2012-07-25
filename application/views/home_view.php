@@ -1,7 +1,7 @@
 				<div class="offsetImg">
 					<img id="main_banner" src="images/mainBanner.jpg" alt="main banner"/>
 					<div id="wrapper" style="width: 950px; overflow: hidden;">
-						<div style="width: 525px; float: left;">
+						<div style="width: 505px; float: left;">
 						
 							<a href="web/join_us"><img src="images/Join_Us.jpg" alt="Join Us"/></a>
 							<a href="events"><img src="images/Events.jpg" alt="Events"/></a>
