@@ -5,6 +5,7 @@ class News extends CI_Controller {
 	
 	public function __construct() {
 		parent::__construct();
+		$this->load->library('pagination');
 		$member_id = $this->session->userdata('member_id');
 		if ($member_id == false)
 			$this->data['member'] = $this->currentMember = new user();
@@ -31,8 +32,24 @@ class News extends CI_Controller {
 	{
 		$this->load->model('news_model');
 		$this->load->helper(array('form', 'url'));
-		$this->data['entries'] = $this->news_model->get_last_ten_entries();
 		$this->data['user'] = $this->_getCurrentUser();
+		
+		$config = array();
+		$config['base_url'] = base_url() . 'news/index';
+		$config['total_rows'] = $this->news_model->record_count();
+		$config['per_page'] = 10;
+		$config['uri_segment'] = 3;
+		$choice = $config['total_rows'] / $config['per_page'];
+		$config['num_links'] = round($choice);
+
+		
+		$this->pagination->initialize($config);
+		$page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+		
+		$this->data['results'] = $this->news_model->get_all_entries($config['per_page'], $page);
+		$this->data['links'] = $this->pagination->create_links();
+		
+		
 		$this->load->view('header', $this->data);
 		$this->load->view('news_view', $this->data);
 		$this->load->view('footer', $this->data);
