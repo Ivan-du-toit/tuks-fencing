@@ -1,3 +1,27 @@
+a:link
+{
+	text-decoration:none;
+	color:#e30033;
+}
+
+a:visited
+{
+	text-decoration:none;
+	color:#e30033;
+}
+
+a:active
+{
+	text-decoration:none;
+	color:#e30033;
+}
+
+a:hover
+{
+	text-decoration:none;
+	color:#000000;
+}
+
 a img{
 	border:none;
 }
@@ -354,4 +378,17 @@ table {
 #latestNews h3 {
 	margin-bottom:0px;
 	margin-top:0px;
+}
+
+#container h3 {
+	margin-bottom:0px;
+	margin-top:0px;
+}
+
+.news_date {
+	margin-top:0px;
+	margin-bottom:0px;
+	margin-left:650px;
+	
+	color:#7f7f7f;
 }

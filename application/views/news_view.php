@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!--
 	<meta charset="utf-8">
 	<title>Welcome to Tuks Fencing Site</title>
 
@@ -62,7 +63,7 @@
 		border: 1px solid #D0D0D0;
 		-webkit-box-shadow: 0 0 8px #D0D0D0;
 	}
-	</style>
+	</style-->
 </head>
 <body>
 <script type="text/javascript">
@@ -76,7 +77,7 @@ function confirm_delete(link)
 }
 </script>
 <div id="container">
-	<h1>Latest News</h1>
+	<h2>Latest News</h2>
 
 	<div id="body">
 		<?php
@@ -87,13 +88,15 @@ function confirm_delete(link)
 		?>
 		<?php 
 			foreach ($results as $data) {?>
+		<hr />
 		<h3><?php echo $data->title; ?></h3>
-		<p><?php echo $data->content; ?></p>
-		<p><b><?php echo 'Posted on '.$data->date; ?></b></p>
+		<p class="news_date"><?php echo 'Posted on '.$data->date; ?></p>
+		<hr />
+		<p class="news_content"><?php echo $data->content; ?></p>
 		<?php
 			if ($user->isAdmin()) {?>
 				<p>
-				<?=anchor('news/edit/'.$data->id, 'Edit Post')?>
+				<?=anchor('news/edit/'.$data->id, 'Edit Post')?>|
 				<?php echo '<a href="javascript:confirm_delete(\'news/delete/'.$data->id.'\')">Delete Post</a>' ?>
 				</p> 
 				<?php }
