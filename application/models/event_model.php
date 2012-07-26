@@ -45,8 +45,12 @@ class event_model extends CI_Model {
 		return $id;
     }
 	
-	public function editEvent($id, $data) {
-        $this->db->update('event', $data);
+	public function update($id, $data, $categories) {
+        $this->db->update('event', array('id' => $id), $data);
+		$this->db->delete('event_category', array('event_id' => $id));
+		foreach ($categories as $category) {
+			$this->db->insert('event_category', $category);
+		}
     }
 	
 	public function deleteEvent($id) {

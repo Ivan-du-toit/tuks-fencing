@@ -113,14 +113,10 @@ class News extends CI_Controller {
 			$this->load->view('header', $this->data);
 			$this->load->view('no_access');
 			$this->load->view('footer', $this->data);
-		}
-		
-		
-	
+		}	
 	}
-		
+
 	private function _getCurrentUser() {
 		return $this->currentMember;
-	}
-	
+	}	
 }
