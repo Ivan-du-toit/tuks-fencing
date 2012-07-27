@@ -1,4 +1,3 @@
-CANNOT DELETE EVENT!! db error
 <h2>Event Calendar</h2>
 <?php if ($member->isAdmin()): ?>
 <div id="admin-panel">

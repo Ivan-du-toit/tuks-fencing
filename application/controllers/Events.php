@@ -118,7 +118,7 @@ class Events extends CI_Controller
 	public function view() {
 		$id = $this->uri->segment(3, 0);
 		$this->data['event'] = $this->event_model->getEvent($id);
-		$this->data['categories'] = $this->event_model->getCategories($id, $this->currentMember->getID());
+		$this->data['categories'] = $this->event_model->getCategories($id, ($this->currentMember->isMember()) ? $this->currentMember->getID():-1);
 		$this->load->view('header', $this->data);
 		$this->load->view('event_view', $this->data);
 		$this->load->view('footer', $this->data);
@@ -140,8 +140,7 @@ class Events extends CI_Controller
 				if ($cat->attend)
 					$this->event_model->deleteAttendance($cat->id, $this->currentMember->getID());
 			}
-			
-			if (sizeof($categories) == 0)
+			if ($categories === FALSE)
 				$categories = array();
 			foreach($categories as $category) {
 				$this->event_model->registerForCategory($category, $this->currentMember->getID());
