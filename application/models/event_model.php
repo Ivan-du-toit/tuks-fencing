@@ -69,5 +69,11 @@ class event_model extends CI_Model {
 	public function deleteAttendance($category_id, $member_id) {
 		$this->db->delete('attendance', array('category_id' => $category_id, 'member_id' => $member_id));
 	}
+	
+	public function getAttendees($event_id) {
+		$query = $this->db->query("SELECT member.* FROM event_category RIGHT JOIN attendance ON event_category.id = attendance.category_id LEFT JOIN member ON member_id = member.id WHERE event_id = {$this->db->escape($event_id)} ORDER BY age and weapon and gender");
+		return $query->result_object();
+		
+	}
 }
 ?>

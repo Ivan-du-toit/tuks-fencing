@@ -20,9 +20,11 @@
 <h4>Surname</h4>
 <input type="text" required name="surname" value="<?php echo set_value('surname', ''); ?>" size="50"/>
 
+<h4>Club</h4>
+<input type="text" name="club" value="<?php echo set_value('club', ''); ?>" size="50"/>
 
 <h4>Date of Birth</h4>
-<input type="date" name="DOB" value="<?php echo set_value('DOB', '1990-01-01'); ?>" size="50" />
+<input type="date" name="DOB" value="<?php echo set_value('DOB', '1990-01-01'); ?>" size="50" /><br><br><br>
 
 <fieldset>
 <legend>Weapon(s)</legend>

@@ -1,5 +1,8 @@
 <h2><?php echo $event->name; ?></h2>
 <p><?php echo $event->description; ?></p>
+<?php if ($member->isAdmin()): ?>
+	<a href="events/attendance/<?php echo $event->id; ?>">View Attendance</a>
+<?php endif; ?>
 <?php echo form_open('events/attend', array('method'=>'post'), array('event_id' => $event->id)); ?>
 <table>
 <thead>

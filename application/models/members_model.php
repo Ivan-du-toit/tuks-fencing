@@ -23,11 +23,12 @@ class members_model extends CI_Model {
         $this->db->update('member', $data);
     }
 	
-	public function newMember($email, $password, $name, $surname, $DoB, $weapons) {
+	public function newMember($email, $password, $name, $surname, $club, $DoB, $weapons) {
 		$data = array('email' => $email, 
 					'password' => member::hashPassword($password),
 					'name' => $name,
 					'surname' => $surname,
+					'club' => $club,
 					'birth_date' => date('Y-m-d', $DoB),
 					'weapons' => implode(',' , $weapons)
 				);

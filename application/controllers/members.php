@@ -62,12 +62,13 @@ class Members extends CI_Controller {
 				$password = $this->input->post('password');
 				$name = $this->input->post('name', TRUE);
 				$surname = $this->input->post('surname', TRUE);
+				$club = $this->input->post('club', TRUE);
 				$weapons = array();
 				foreach ($this->input->post('weapons', TRUE) as $weapon) 
 					$weapons[] = $weapon;
 				$DoB = strtotime($this->input->post('dob', TRUE));
 				
-				$id = $this->members_model->newMember($email, $password, $name, $surname, $DoB, $weapons);
+				$id = $this->members_model->newMember($email, $password, $name, $surname, $club, $DoB, $weapons);
 				$this->session->set_userdata('member_id', $id);
 				redirect(base_url(), 'refresh', 200);
 			} else

@@ -160,6 +160,19 @@ class Events extends CI_Controller
 		redirect(base_url().'events', 'refresh', 200);
 	}
 	
+	public function attendance() {
+		if (!$this->currentMember->isAdmin()) {
+			$this->load->view('no_access');
+			return;
+		}
+		$id = $this->uri->segment(3, -1);
+		$this->data['attendees'] = $this->event_model->getAttendees($id);
+		
+		$this->load->view('header', $this->data);
+		$this->load->view('event_attendance', $this->data);
+		$this->load->view('footer', $this->data);
+	}
+
 	private function _getCurrentMember() {
 		return $this->currentMember;
 	}
